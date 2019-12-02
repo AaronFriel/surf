@@ -20,7 +20,7 @@ impl IsahcClient {
     /// Create a new instance.
     pub fn new() -> Self {
         Self {
-            client: Arc::new(isahc::HttpClient::new().unwrap()),
+            client: Arc::new(isahc::HttpClient::builder().tcp_nodelay().build().unwrap()),
         }
     }
 }
